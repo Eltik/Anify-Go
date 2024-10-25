@@ -1,12 +1,12 @@
 package main
 
 import (
-	"example/user/hello/src/database"
-	events "example/user/hello/src/lib"
-	proxies "example/user/hello/src/lib/impl/proxies"
-	"example/user/hello/src/lib/impl/request"
-	"example/user/hello/src/mappings/impl/manga"
-	"example/user/hello/src/types"
+	"anify/eltik/go/src/database"
+	events "anify/eltik/go/src/lib"
+	proxies "anify/eltik/go/src/lib/impl/proxies"
+	"anify/eltik/go/src/lib/impl/request"
+	"anify/eltik/go/src/mappings/impl/manga"
+	"anify/eltik/go/src/types"
 )
 
 func main() {

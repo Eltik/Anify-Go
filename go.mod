@@ -1,4 +1,4 @@
-module example/user/hello
+module anify/eltik/go
 
 go 1.21
 

@@ -1,7 +1,7 @@
 package types
 
 import (
-	"example/user/hello/src/lib/impl/request"
+	"anify/eltik/go/src/lib/impl/request"
 	"net/http"
 	"strings"
 )
@@ -11,7 +11,7 @@ type MangaProvider interface {
 	FetchChapters(id string) ([]Chapter, error)
 	FetchRecent() ([]Manga, error)
 	FetchPages(id string, proxy bool, chapter *Chapter) (interface{}, error) // can return []Page or string
-	Request(url string, config map[string]interface{}, proxyRequest *bool) (request.Response, error)
+	Request(config http.Request, proxyRequest *bool) (request.Response, error)
 	ProxyCheck() (bool, error)
 	PadNum(number string, places int) string
 }

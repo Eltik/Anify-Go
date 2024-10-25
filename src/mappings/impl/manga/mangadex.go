@@ -1,8 +1,9 @@
 package manga
 
 import (
+	"anify/eltik/go/src/lib/impl/request"
+	"anify/eltik/go/src/types"
 	"encoding/json"
-	"example/user/hello/src/types"
 	"fmt"
 	"io"
 	"net/http"
@@ -170,6 +171,10 @@ func (p *MangaDexProvider) ProxyCheck() (bool, error) {
 // PadNum pads a number with leading zeros.
 func (p *MangaDexProvider) PadNum(number string, places int) string {
 	return p.BaseMangaProvider.PadNum(number, places)
+}
+
+func (p *MangaDexProvider) Request(config http.Request, proxyRequest *bool) (request.Response, error) {
+	return p.BaseMangaProvider.Request(config, proxyRequest)
 }
 
 type MangaDexSearch struct {

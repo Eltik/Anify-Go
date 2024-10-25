@@ -1,9 +1,9 @@
 package database_fetch
 
 import (
+	"anify/eltik/go/src/database"
+	"anify/eltik/go/src/types"
 	"context"
-	"example/user/hello/src/database"
-	"example/user/hello/src/types"
 
 	"github.com/jackc/pgx/v5"
 )

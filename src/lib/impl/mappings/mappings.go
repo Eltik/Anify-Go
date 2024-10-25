@@ -1,9 +1,9 @@
 package mappings
 
 import (
-	database_fetch "example/user/hello/src/database/impl/fetch"
-	events "example/user/hello/src/lib"
-	"example/user/hello/src/types"
+	database_fetch "anify/eltik/go/src/database/impl/fetch"
+	events "anify/eltik/go/src/lib"
+	"anify/eltik/go/src/types"
 	"log"
 )
 
@@ -23,7 +23,7 @@ func LoadMappings(data struct {
 		return nil, nil, nil
 	}
 
-	log.Println("No existing data found, fetching mappings")
+	log.Println("No existing data found, fetching mappings.")
 
 	return nil, nil, nil
 }

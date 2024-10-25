@@ -8,7 +8,7 @@ import (
 	"net/url"
 	"time"
 
-	proxies "example/user/hello/src/lib/impl/proxies"
+	proxies "anify/eltik/go/src/lib/impl/proxies"
 )
 
 func GetRandomUnbannedProxy(providerId string) *string {
