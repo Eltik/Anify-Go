@@ -22,7 +22,7 @@ func NewMangaDexProvider() *MangaDexProvider {
 			RateLimit:          250,
 			Id:                 "mangadex",
 			Url:                "https://mangadex.org",
-			Formats:            []types.Format{types.FormatManga},
+			Formats:            []types.Format{types.FormatManga, types.FormatOneShot},
 			ProviderType:       types.ProviderTypeManga,
 			NeedsProxy:         true,
 			UseGoogleTranslate: false,
@@ -94,10 +94,6 @@ func (p *MangaDexProvider) Search(query string, format types.Format, year int) (
 		}
 	}
 
-	if len(results) > 0 {
-		fmt.Println(results[0].Title)
-	}
-
 	return results, nil
 }
 
@@ -148,27 +144,22 @@ func extractTitle(attributes Attributes) string {
 	return ""
 }
 
-// FetchChapters fetches chapters for a specific manga by ID.
 func (p *MangaDexProvider) FetchChapters(id string) ([]types.Chapter, error) {
 	return nil, nil
 }
 
-// FetchRecent fetches the most recent manga.
 func (p *MangaDexProvider) FetchRecent() ([]types.Manga, error) {
 	return nil, nil
 }
 
-// FetchPages fetches pages for a given chapter.
 func (p *MangaDexProvider) FetchPages(id string, proxy bool, chapter *types.Chapter) (interface{}, error) {
 	return nil, nil
 }
 
-// ProxyCheck checks if the provider can access the API through a proxy.
 func (p *MangaDexProvider) ProxyCheck() (bool, error) {
 	return false, nil
 }
 
-// PadNum pads a number with leading zeros.
 func (p *MangaDexProvider) PadNum(number string, places int) string {
 	return p.BaseMangaProvider.PadNum(number, places)
 }

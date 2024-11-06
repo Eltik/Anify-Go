@@ -48,6 +48,16 @@ const (
 type Rating map[string]float64
 type Popularity map[string]float64
 
+type Season string
+
+const (
+	SeasonWinter  Season = "WINTER"
+	SeasonSpring  Season = "SPRING"
+	SeasonSummer  Season = "SUMMER"
+	SeasonFall    Season = "FALL"
+	SeasonUnknown Season = "UNKNOWN"
+)
+
 type Title struct {
 	Romaji  *string
 	English *string
@@ -124,7 +134,7 @@ type Anime struct {
 	BannerImage       *string
 	Trailer           *string
 	Status            *string
-	Season            string
+	Season            Season
 	Title             Title
 	CurrentEpisode    *int
 	Mappings          []Mapping
@@ -199,7 +209,7 @@ type ChapterCollection struct {
 	Data []ChapterData
 }
 
-type AnimeInfo struct {
+type MediaInfo struct {
 	ID              string
 	Title           Title
 	Artwork         []Artwork
@@ -209,7 +219,7 @@ type AnimeInfo struct {
 	BannerImage     *string
 	CoverImage      *string
 	Color           *string
-	Season          string
+	Season          Season
 	Year            *int
 	Status          *string
 	Genres          []string
@@ -224,30 +234,8 @@ type AnimeInfo struct {
 	Type            Type
 	Rating          *float64
 	Popularity      *float64
-}
-
-type MangaInfo struct {
-	ID              string
-	Title           Title
-	Artwork         []Artwork
-	Synonyms        []string
 	TotalChapters   *int
-	BannerImage     *string
-	CoverImage      *string
-	Color           *string
-	Year            *int
-	Status          *string
-	Genres          []string
-	Description     *string
-	Format          Format
 	TotalVolumes    *int
-	CountryOfOrigin *string
-	Tags            []string
-	Relations       []Relations
-	Characters      []Character
 	Author          *string
 	Publisher       *string
-	Type            Type
-	Rating          *float64
-	Popularity      *float64
 }
