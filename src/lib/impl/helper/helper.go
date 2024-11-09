@@ -1,6 +1,8 @@
 package helper
 
-import "strconv"
+import (
+	"strconv"
+)
 
 func ConvertStringToIntPointer(s string) *int {
 	if s == "" {
@@ -11,4 +13,8 @@ func ConvertStringToIntPointer(s string) *int {
 		return nil
 	}
 	return &i
+}
+
+func IsString(s string) bool {
+	return s != ""
 }

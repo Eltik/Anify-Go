@@ -24,7 +24,7 @@ type ScheduleResponse struct {
 
 type BaseProvider interface {
 	Search(query string, mediaType Type, formats []Format, page int, perPage int) ([]MediaInfo, error)
-	SearchAdvanced(query string, mediaType Type, formats []Format, page int, perPage int, genres []string, genresExcluded []string, season Season, year int, tags []string) ([]MediaInfo, error)
+	SearchAdvanced(query string, mediaType Type, formats []Format, page int, perPage int, genres []string, genresExcluded []string, season Season, year int, tags []string, tagsExcluded []string) ([]MediaInfo, error)
 	GetCurrentSeason() (Season, error)
 	GetMedia(id string) (MediaInfo, error)
 	GetSeasonal(mediaType Type, formats []Format) (SeasonalResponse, error)
@@ -32,6 +32,7 @@ type BaseProvider interface {
 	GetIds() ([]string, error)
 	Request(config http.Request, proxyRequest *bool) (request.Response, error)
 	ProxyCheck() (bool, error)
+	GetFormats() []Format
 }
 
 type BaseBaseProvider struct {
@@ -72,6 +73,10 @@ func (b *BaseBaseProvider) GetSchedule() (ScheduleResponse, error) {
 
 func (b *BaseBaseProvider) GetIds() ([]string, error) {
 	return nil, nil
+}
+
+func (b *BaseBaseProvider) GetFormats() []Format {
+	return b.Formats
 }
 
 func (b *BaseBaseProvider) Request(config http.Request, proxyRequest *bool) (request.Response, error) {

@@ -14,6 +14,9 @@ type MangaProvider interface {
 	Request(config http.Request, proxyRequest *bool) (request.Response, error)
 	ProxyCheck() (bool, error)
 	PadNum(number string, places int) string
+	GetFormats() []Format
+	GetID() string
+	GetType() ProviderType
 }
 
 type BaseMangaProvider struct {
@@ -80,4 +83,16 @@ func max(a, b int) int {
 		return a
 	}
 	return b
+}
+
+func (b *BaseMangaProvider) GetFormats() []Format {
+	return b.Formats
+}
+
+func (b *BaseMangaProvider) GetID() string {
+	return b.Id
+}
+
+func (b *BaseMangaProvider) GetType() ProviderType {
+	return b.ProviderType
 }

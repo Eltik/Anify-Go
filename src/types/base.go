@@ -127,13 +127,63 @@ type ChapterData struct {
 	Chapters   []Chapter
 }
 
+type Status string
+
+const (
+	StatusFinished    Status = "FINISHED"
+	StatusReleasing   Status = "RELEASING"
+	StatusNotYetAired Status = "NOT_YET_RELEASED"
+	StatusCancelled   Status = "CANCELLED"
+	StatusHiatus      Status = "HIATUS"
+	StatusUnknown     Status = "UNKNOWN"
+)
+
+type Media struct {
+	ID                string
+	Slug              string
+	CoverImage        *string
+	BannerImage       *string
+	Trailer           *string
+	Status            *Status
+	Season            Season
+	Title             Title
+	CurrentEpisode    *int
+	Mappings          []Mapping
+	Synonyms          []string
+	CountryOfOrigin   *string
+	Description       *string
+	Duration          *int
+	Color             *string
+	Year              *int
+	Rating            Rating
+	Popularity        Popularity
+	AverageRating     *float64
+	AveragePopularity *float64
+	Type              Type
+	Genres            []string
+	Format            Format
+	Relations         []Relations
+	TotalEpisodes     *int
+	Episodes          EpisodeCollection
+	Tags              []string
+	Artwork           []Artwork
+	Characters        []Character
+
+	CurrentChapter *int
+	TotalVolumes   *int
+	Publisher      *string
+	Author         *string
+	TotalChapters  *int
+	Chapters       ChapterCollection
+}
+
 type Anime struct {
 	ID                string
 	Slug              string
 	CoverImage        *string
 	BannerImage       *string
 	Trailer           *string
-	Status            *string
+	Status            *Status
 	Season            Season
 	Title             Title
 	CurrentEpisode    *int
@@ -164,7 +214,7 @@ type Manga struct {
 	Slug              string
 	CoverImage        *string
 	BannerImage       *string
-	Status            *string
+	Status            *Status
 	Title             Title
 	Mappings          []Mapping
 	Synonyms          []string
